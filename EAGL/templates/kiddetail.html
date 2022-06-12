@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Goat Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+ 
+     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+   <script src="https://kit.fontawesome.com/db71ca3f4b.js" crossorigin="anonymous"></script>
+
+   <link rel="stylesheet" href="{% static 'css/table.css' %}">
+   <link rel="stylesheet" href="{% static 'css/popupforms.css'%}">
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+  <body>
+      <!-- kid details -->
+    <div id="id01" class="modal">
+      <div class="wrapperx2">
+        <br><br>
+        <div class="wrapperx">
+          <span onclick="zindexchanger2()" class="close-span">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </span>
+          <div class="title">
+            Add Goat Kid
+          </div>
+          <div class="signup-form">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p>Please fill in this form to add goat kids details</p>
+                <hr>
+        
+                <!-- kid gender -->
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<span class="fa fa-genderless"></span>
+							</span>                    
+						</div>
+						<div class="form-control">
+							<label for="gender" style="padding-right: 20px;color: #495057;">Gender</label>
+							<input type="radio" id="male" name="kid_gender" value="Male" required="required">
+							<label for="male" style="padding-right: 10px;">Male</label>
+							<input type="radio" id="female" name="kid_gender" value="Female" required="required">
+							<label for="female">Female</label>
+						</div>         
+					</div>
+				</div>
+
+				<!-- tag number -->
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-tag"></i>
+							</span>                    
+						</div>
+						<input type="text" class="form-control" name="kid_tag_number" placeholder="Tag Number of Kid" required="required">
+					</div>
+				</div>
+
+				<!-- policy number -->
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-edit"></i>
+							</span>                    
+						</div>
+						<input type="text" class="form-control" name="kid_policy_number" placeholder="Policy Number of Kid" required="required">
+					</div>
+				</div>
+                
+                <!-- kid born date -->
+                <div class="form-group" style="margin-top: -7px">
+                <span>Select the date when kid was born</span><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar-o"></i>
+                            </span>                    
+                        </div>
+                        <input type="date" class="form-control" name="kid_born_date">
+                    </div>
+                </div>
+    
+                <!-- Sign Up -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg signup" id="signup11">Submit</button>
+                </div>
+            </form>
+            <br>
+        </div>
+        </div>
+      </div>	
+    </div>
+
+    <div id="divx">
+        <div id="wrap" class="folder">
+            <div class="container">
+                <img style="width: 220px;" src="{% static 'images/eagl-bg.png' %}" alt=""><br><br>
+                <h2><b>{{goat}} -Kid</b></h2>
+                <a style="float: left !important;text-decoration: none;" href="{% url 'userdetail' user.id %}"">
+                  <button type="button" class="add">Back</button>
+                </a>
+                
+                <button type="button" onclick="zindexchanger()" class="add">Add Goat Kid</button>
+                <button type="button" onclick="location.href='{% url 'logout' %}'" class="add" style="margin-right: 1.5%;">Logout</button>
+                
+                <div>
+                    {% if error %}
+                        {%for message in messages%}
+                            <p style="color: red; text-align:center; margin-left:20px">{{message}}</p>
+                        {%endfor%}
+                    {% endif %}
+                </div>
+                <br><br>
+            </div>
+         </div>
+         
+		 <div class="chartdiv container">
+			<div class="wrapperx" style="margin-right: 9px;">
+				<h4 style="color: black;">Goat Count Status</h4>
+				<div class="chart" id="piechart"></div>
+			</div>
+			<div class="wrapperx">
+				<h4 style="color: black;">Insurance Pie Chart</h4>
+				<div class="chart" id="inspiechart"></div>
+			</div>
+		</div>
+
+        <!-- table start -->
+        <div id="wrap" class="folder">
+            <div class="container"> 
+                <table class="table table-fluid" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>Sr.No</th>
+                            <th>Goat Gender</th>
+                            <th>Tag Number</th>
+                            <th>Policy Number</th>
+                            <th>Insurance</th>
+                            <th>Vaccination</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in kid_set %}
+                        <tr>  
+                        <td data-label="Sr.No"><a href="">{{forloop.counter}}</a></td>
+                        <td data-label="Goat Gender"><a href="">{{i.kid_gender}}</a></td>
+                        <td data-label="Tag Number"><a href="">{{i.kid_tag_number}}</a></td>
+                        <td data-label="Policy Number"><a href="">{{i.kid_policy_number}}</a></td>
+                        <td data-label="Insurance">
+                            <a href="{% url 'insuranceClaimKid' i.id %}"><button type="button" class="btn btn-warning btn-sm" id="claimbutton">Claim Insurance</button></a>
+                        </td>
+                        <td data-label="Vaccination">
+                            <a href="{% url 'vaccination' i.goat.user i.id %}"><button type="button" class="btn btn-success btn-sm">Vaccination</button></a>
+                        </td>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- table end  -->
+
+    </div>
+  </body>
+<script>
+  function zindexchanger(){
+    document.getElementById('wrap').style.zIndex='99'
+    $('#divx').fadeOut();
+    document.getElementById('id01').style.display='block'
+    $('#id01').fadeIn();
+  }
+  function zindexchanger2(){
+    document.getElementById('id01').style.display='none'
+    $('#divx').fadeIn();
+    document.getElementById('wrap').style.zIndex='101'
+  }
+  function zindexchanger4(){
+    document.getElementById('id02').style.display='none'
+    $('#divx').fadeIn();
+    document.getElementById('wrap').style.zIndex='101'
+  }
+</script>
+<script>
+  function myFunction() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+  
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("span")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+</script>
+<script type="text/javascript">
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+
+	function drawChart() {
+		var x = {{kid_count_pie|safe}}
+		var data = google.visualization.arrayToDataTable(x,false);
+
+		var options = {
+			title: 'Count of goats: {{user_num_kids}}',
+			'width':400,
+			'height':250
+		};
+
+		var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+		
+		chart.draw(data, options);
+	}
+</script>
+<script type="text/javascript">
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+
+	function drawChart() {
+		var x = {{insurance_pie|safe}}
+		var data = google.visualization.arrayToDataTable(x,false);
+
+		var options = {
+			title: 'Insurance Count',
+			'width':400,
+			'height':250
+		};
+
+		var chart = new google.visualization.PieChart(document.getElementById('inspiechart'));
+		
+		chart.draw(data, options);
+	}
+</script>
+<script type="text/javascript">
+    function disable(btn){
+        document.getElementById("claimbutton").disabled = true
+    }
+</script>
+</html>

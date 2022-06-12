@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+	<title>Login Page</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'img/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <style type="text/css">
+        body{
+            background: #36D1DC;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC) fixed;  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #5B86E5, #36D1DC) fixed; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        } 
+    </style>
+<!--===============================================================================================-->
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

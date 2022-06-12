@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>User Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+ 
+     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+   <script src="https://kit.fontawesome.com/db71ca3f4b.js" crossorigin="anonymous"></script>
+
+   <link rel="stylesheet" href="{% static 'css/table.css' %}">
+   <link rel="stylesheet" href="{% static 'css/popupforms.css'%}">
+  </head>
+<body>
+        <br><br>
+        <div class="wrapperx">
+          <span onclick="location.href='{% url 'userdetail' user.id %}'" class="close-span">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </span>
+          <div class="title">
+            Vaccine Status 
+          </div>
+          <div class="signup-form">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p>Please fill in this form </p>
+                <hr>
+        
+                <!-- username -->
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span class="fa fa-user"></span>
+                            </span>                    
+                        </div>
+                        <input type="text" class="form-control" name="username" placeholder="Name" required="required" value="{{user.username}}" disabled>
+                    </div>
+                </div>
+        
+                <!-- goat description -->
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span class="fa fa-paper-plane"></span>
+                            </span>                    
+                        </div>
+                        <input type="text" class="form-control" name="gender" placeholder="Goat Gender" required="required" value="{{goat.goat_gender}}" disabled>
+                    </div>
+                </div>
+
+                <!-- tag number -->
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-tag"></i>
+                            </span>                    
+                        </div>
+                        <input type="text" class="form-control" name="tag_number" placeholder="Tag Number" required="required" value="{{goat.tag_number}}" disabled>
+                    </div>
+                </div>
+  
+                  <!-- policy number -->
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-edit"></i>
+                            </span>                    
+                        </div>
+                        <input type="text" class="form-control" name="policy_number" placeholder="Policy Number" required="required" value="{{goat.policy_number}}" disabled>
+                    </div>
+                </div>
+
+                <!-- goat hand over date -->
+                <div class="form-group" style="margin-top: -7px">
+                <span>Select the goat hand over date</span><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar-o"></i>
+                            </span>                    
+                        </div>
+                        <input type="date" class="form-control" name="hand_over_date" value="{{goat.goat_hand_over_date|date:'Y-m-d'}}" disabled>
+                    </div>
+                </div>
+
+                <!-- Deworming date -->
+                <div class="form-group" style="margin-top: -7px">
+                <b style="float:left">Deworming Date:</b>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar-o"></i>
+                            </span>                    
+                        </div>
+                        <input type="date" class="form-control" name="deworming_date" style="display:block; overflow:hidden; width:70%" value="{{goat_vaccine.deworming_date|date:'Y-m-d'}}">
+                    </div>
+                </div>
+
+                <!-- PPR date -->
+                    <div class="form-group" style="margin-top: -7px">
+                    <span>Select the date for <b>PPR</b></span><br>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar-o"></i>
+                                </span>                    
+                            </div>
+                            <input type="date" class="form-control" name="ppr_date" value="{{goat_vaccine.ppr_date|date:'Y-m-d'}}">
+                        </div>
+                    </div>
+
+                <!-- ETV date -->
+                    <div class="form-group" style="margin-top: -7px">
+                    <span>Select the date for <b>ETV</b></span><br>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar-o"></i>
+                                </span>                    
+                            </div>
+                            <input type="date" class="form-control" name="etv_date" value="{{goat_vaccine.etv_date|date:'Y-m-d'}}">
+                        </div>
+                    </div>
+
+                <!-- Etv_booster date -->
+                    <div class="form-group" style="margin-top: -7px">
+                    <span>Select the date for <b>Etv_booster</b></span><br>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar-o"></i>
+                                </span>                    
+                            </div>
+                            <input type="date" class="form-control" name="etv_booster_date" value="{{goat_vaccine.etv_booster_date|date:'Y-m-d'}}">
+                        </div>
+                    </div>
+
+                <!-- Anthrax date -->
+                    <div class="form-group" style="margin-top: -7px">
+                    <span>Select the date for <b>Anthrax</b></span><br>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar-o"></i>
+                                </span>                    
+                            </div>
+                            <input type="date" class="form-control" name="anthrax_date" value="{{goat_vaccine.anthrax_date|date:'Y-m-d'}}">
+                        </div>
+                    </div>
+
+                <!-- Enterotoxamia date -->
+                    <div class="form-group" style="margin-top: -7px">
+                    <span>Select the date for <b>Enterotoxamia</b></span><br>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar-o"></i>
+                                </span>                    
+                            </div>
+                            <input type="date" class="form-control" name="enterotoxamia_date" value="{{goat_vaccine.enterotoxamia_date|date:'Y-m-d'}}">
+                        </div>
+                    </div>
+
+                <!-- FMD date -->
+                    <div class="form-group" style="margin-top: -7px">
+                    <span>Select the date for <b>FMD</b></span><br>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar-o"></i>
+                                </span>                    
+                            </div>
+                            <input type="date" class="form-control" name="fmd_date" value="{{goat_vaccine.fmd_date|date:'Y-m-d'}}">
+                        </div>
+                    </div>
+
+                <!-- HS/BQ< date -->
+                    <div class="form-group" style="margin-top: -7px">
+                    <span>Select the date for <b>HS/BQ</b></span><br>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar-o"></i>
+                                </span>                    
+                            </div>
+                            <input type="date" class="form-control" name="hs_bq_date" value="{{goat_vaccine.hs_bq_date|date:'Y-m-d'}}">
+                        </div>
+                    </div>
+
+                <!-- Goat Pox date -->
+                    <div class="form-group" style="margin-top: -7px">
+                    <span>Select the date for <b>Goat Pox</b></span><br>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar-o"></i>
+                                </span>                    
+                            </div>
+                            <input type="date" class="form-control" name="goat_pox_date" value="{{goat_vaccine.goat_pox_date|date:'Y-m-d'}}">
+                        </div>
+                    </div>
+
+                <!-- CCPR date -->
+                    <div class="form-group" style="margin-top: -7px">
+                    <span>Select the date for <b>CCPR</b></span><br>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar-o"></i>
+                                </span>                    
+                            </div>
+                            <input type="date" class="form-control" name="ccpr_date" value="{{goat_vaccine.ccpr_date|date:'Y-m-d'}}">>
+                        </div>
+                    </div>
+
+                
+                <!-- Sign Up -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg signup" id="signup11">Submit</button>
+                </div>
+
+                <div>
+                    {%for message in messages%}
+                        <h4>{{error}}</h4>
+                    {% endfor %}
+                </div>
+            </form>
+            <br>
+        </div>
+        </div>
+
+</body>
+</html>

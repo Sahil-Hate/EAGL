@@ -1,0 +1,466 @@
+body {
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+	height: 100%;
+}
+html{
+	min-height: 100%;
+	background-repeat:no-repeat;
+}
+
+.modal{
+    z-index: 100;
+    /* position: fixed center; */
+    padding: 0 10px;
+    overflow-y: scroll;
+  }
+  .title1{
+    /* background: rgba(175, 253, 230, 0.95); */
+    overflow: hidden;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    font-size: 50px;
+    font-weight: 700;
+    /* margin-bottom: 25px; */
+    /* color: rgb(255, 67, 57); */
+    color: #052517;
+    text-transform: uppercase;
+    text-align: center;
+    /* border-bottom: 2px solid black; */
+  }
+  .wrapperx2{
+    padding: 0 10px;
+  }
+  .wrapperx3{
+    /* max-width: 600px; */
+    width: 100%;
+    display: flex;
+    /* background: rgba(23, 22, 54, 0.952); */
+    background: #fff;
+    margin: 20px auto;
+    box-shadow: 5px 5px 15px rgb(99, 96, 96);
+    border-radius: 25px;
+    padding: 30px;
+    /* padding: 30px 10px; */
+    border: 2px solid rgba(0, 0, 0, 0.95);
+  }
+  .wrapperx{
+    max-width: 600px;
+    width: 100%;
+    /* background: rgba(23, 22, 54, 0.952); */
+    background: #fff;
+    margin: 20px auto;
+    box-shadow: 5px 5px 15px rgb(99, 96, 96);
+    border-radius: 25px;
+    padding: 30px;
+    /* padding: 30px 10px; */
+    border: 2px solid rgba(0, 0, 0, 0.95);
+  }
+  .wrapperx .close-span{
+    font-size: large;
+    float: right;
+    padding-bottom: 15px;
+    color: red;
+  }
+  .wrapperx .close-span:hover{
+      cursor:pointer;
+  }
+  
+  .wrapperx .title{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: rgba(0, 0, 0, 0.95);
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .wrapperx .form{
+    width: 100%;
+  }
+  
+  .wrapperx .form .inputfield{
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+  .wrapperx .form .inputfield4{
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .wrapperx .form .inputfield4 label{
+    width: 40%;
+    color: #052517;
+    margin-right: 10px;
+   font-size: 15px;
+ }
+ .wrapperx .form .inputfield4 .input{
+    width: 100%;
+    outline: none;
+    border: 1px solid rgba(23, 22, 54, 0.952);
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  .wrapperx .form .inputfield4 .check input[type="checkbox"]{
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1; */
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+    display: block;
+  }
+  .chartdiv{
+    display: flex;
+    width: 100%;
+    padding: 0 10px;
+  }
+  .chart{
+    width: 100%;
+    height: fit-content;
+    overflow: hidden;
+  }
+  @media (max-width:1000px){
+    .chartdiv{
+      display: block;
+    }
+    .x{
+      margin: 0;
+    }
+  }
+  .wrapperx .form .inputfield2{
+      /* width: 100%; */
+      margin-bottom: 15px;
+      /* display: flex; */
+      align-items: center;
+      /* border: 2px solid #757575; */
+      /* border: 2px solid white; */
+    }
+  .wrapperx .form .companylist{
+    display: flex;
+  }
+    .wrapperx .form .inputfield3{
+      width: 100%;
+      margin-bottom: 15px;
+      align-items: center;
+      text-align: center;
+    }
+  
+  .wrapperx .form .inputfield label{
+     width: 40%;
+     color: #052517;
+     margin-right: 10px;
+    font-size: 15px;
+  }
+  .wrapperx .form .inputfield .input,
+  .wrapperx .form .inputfield .textarea{
+    width: 100%;
+    outline: none;
+    border: 1px solid rgba(23, 22, 54, 0.952);
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  
+  .wrapperx .form .inputfield .textarea{
+    width: 100%;
+    height: 125px;
+    resize: none;
+  }
+  
+  .wrapperx .form .inputfield .custom_select{
+    position: relative;
+    width: 100%;
+    height: 37px;
+    border: 1px solid rgba(23, 22, 54, 0.952);
+    border-radius: 1px;
+  }
+  
+  .wrapperx .form .inputfield .custom_select:before{
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    border: 8px solid;
+    border-color: #d5dbd9 transparent transparent transparent;
+    pointer-events: none;
+  }
+  
+  .wrapperx .form .inputfield .custom_select select{
+    -webkit-appearance: none;
+    -moz-appearance:   none;
+    appearance:        none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    padding: 4px 10px 8px 10px;
+    font-size: 15px;
+    border: 1px solid #d5dbd9;
+    border-radius: 3px;
+  }
+  
+  .wrapperx .form .inputfield .input:focus,
+  .wrapperx .form .inputfield .textarea:focus,
+  .wrapperx .form .inputfield .custom_select select:focus{
+    /* border: 2px solid rgba(11, 243, 173, 0.95); */
+    border: 2px solid #0369a5;
+  }
+  
+  .wrapperx .form .inputfield3 p{
+    text-align: center;
+     font-size: 12px;
+  }
+  
+  .wrapperx .form .inputfield2 p{
+      width: 67%;
+      font-size: 14px;
+      color: #052517;
+      /* border: 2px solid red; */
+   }
+   .wrapperx .form .inputfield2 p span{
+    color: #0369a5;
+  }
+  
+  .wrapperx .form .inputfield2 .check{
+    /* width: 30%; */
+    height: 15px;
+    float: left;
+    margin-left: auto;
+    margin-right: 0;
+    position: relative;
+    display: block;
+    cursor: pointer;
+    /* border: 2px solid springgreen; */
+  }
+  .wrapperx .form .inputfield2 .check input[type="checkbox"]{
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1; */
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+    display: block;
+  }
+  /* .wrapperx .form .inputfield2 .check .checkmark{
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+    display: block;
+    position: relative;
+  }
+  .wrapperx .form .inputfield2 .check .checkmark:before{
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    width: 5px;
+    height: 2px;
+    border: 2px solid;
+    border-color: transparent transparent #fff #fff;
+    transform: rotate(-45deg);
+    display: none;
+  }
+  .wrapperx .form .inputfield2 .check input[type="checkbox"]:checked ~ .checkmark{
+    background: black;
+  }
+  
+  .wrapperx .form .inputfield2 .check input[type="checkbox"]:checked ~ .checkmark:before{
+    display: block;
+  } */
+  
+  .wrapperx .form .inputfield .btn{
+    width: 100%;
+     padding: 8px 10px;
+    font-size: 15px; 
+    border: 0px;
+    background:  #074c74;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+  }
+  .wrapperx .form .inputfield .btn:disabled{
+    width: 100%;
+     padding: 8px 10px;
+    font-size: 15px; 
+    border: 0px;
+    background:  rgb(255, 255, 255);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+  }
+  
+  .wrapperx .form .inputfield .btn:hover{
+    background: #0369a5;
+  }
+  
+  /* .wrapperx .form .inputfield:last-child{
+    margin-bottom: 0;
+  } */
+  .x{
+    margin-right: 10px;
+  }
+  @media (max-width:450px) {
+    .wrapperx3{
+      display: block;
+    }
+    .title1{
+      font-size: 40px;
+    }
+    .wrapperx .title{
+      font-size: 20px;
+      margin-bottom: 0px;
+    }
+    .wrapperx .form .inputfield4{
+      margin-bottom: 5px;
+    }
+    .wrapperx .form .inputfield{
+      margin: 0;
+      margin-bottom: 2px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .wrapperx .form .inputfield label{
+      width: 100%;
+      margin-bottom: 2px;
+    }
+    .wrapperx .form .inputfield.terms{
+      flex-direction: row;
+    }
+    .wrapperx .form .inputfield2 p{
+        width: 100%;
+    }
+    .wrapperx .form .inputfield .input,
+  .wrapperx .form .inputfield .textarea{
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+  }
+  
+  /*SCROLLBAR*/
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #0369a5 ;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0369a5;
+  }
+  
+  .hamburger {
+    border:none !important;
+  }
+  
+  .hamburger:focus {
+  outline: none !important;
+  }
+  
+  .conditions {
+  margin-left: 10px;
+  margin-bottom:0 !important;
+  width: 100% !important;
+  }
+
+  .signup-form form {
+    color: #999;    
+  }
+  .signup-form h2 {
+    color: #333;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  .signup-form hr {
+    margin: 0 -30px 20px;
+  }
+  .signup-form .form-group {
+    margin-bottom: 20px;
+  }
+  .signup-form label {
+    font-weight: normal;
+    font-size: 15px;
+  }
+  .signup-form .form-control {
+    min-height: 38px;
+    box-shadow: none !important;
+  }	
+  .signup-form .input-group-addon {
+    max-width: 42px;
+    text-align: center;
+  }	
+  .signup-form .btn, .signup-form .btn:active {        
+    font-size: 16px;
+    font-weight: bold;
+  
+    border: none;
+    min-width: 140px;
+  }
+  .signup-form .btn:hover, .signup-form .btn:focus {
+    background: #1d4eee !important;
+  }
+  .signup-form a {
+    color: #fff;	
+    text-decoration: underline;
+  }
+  .signup-form a:hover {
+    text-decoration: none;
+  }
+  .signup-form form a {
+    color: #19aa8d;
+    text-decoration: none;
+  }	
+  .signup-form form a:hover {
+    text-decoration: underline;
+  }
+  .signup-form .fa {
+    font-size: 21px;
+  }
+  .signup-form .fa-paper-plane {
+    font-size: 18px;
+  }
+  .signup-form .fa-check {
+    color: #fff;
+    left: 17px;
+    top: 18px;
+    font-size: 7px;
+    position: absolute;
+  }
+  .fa-paper-plane,.fa-phone,.fa-lock,.fa-tag,.fa-edit,.fa-arrows-h,.fa-arrows-v,.fa-genderless,.fa-calendar-check{
+      width: 15px;
+      height: 21.33px;
+      padding-right: 4px;
+  }
+  .input-group-text{
+    width: 41px;
+    height: 38px;
+  }
+  
+  /* .vaccines span{
+    float:left
+  }
+
+  .vaccines .input-group input{
+    display: block;
+    overflow: hidden;
+  } */
+
+  

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>User Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+ 
+     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+   <script src="https://kit.fontawesome.com/db71ca3f4b.js" crossorigin="anonymous"></script>
+
+   <link rel="stylesheet" href="{% static 'css/table.css' %}">
+   <link rel="stylesheet" href="{% static 'css/popupforms.css'%}">
+  </head>
+<body>
+        <br><br>
+        <div class="wrapperx">
+          <span onclick="location.href='{% url 'userdetail' user.id %}'" class="close-span">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </span>
+          <div class="title">
+            Update Insurance
+          </div>
+          <div class="signup-form">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p>Please fill in this form to update user details</p>
+                <hr>
+        
+                <!-- username -->
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span class="fa fa-user"></span>
+                            </span>                    
+                        </div>
+                        <input type="text" class="form-control" name="username" placeholder="Name" required="required" value="{{user.username}}" disabled>
+                    </div>
+                </div>
+        
+                <!-- goat description -->
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span class="fa fa-paper-plane"></span>
+                            </span>                    
+                        </div>
+                        <input type="text" class="form-control" name="gender" placeholder="Goat Gender" required="required" value="{{goat.goat_gender}}" disabled>
+                    </div>
+                </div>
+
+                <!-- tag number -->
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-tag"></i>
+                            </span>                    
+                        </div>
+                        <input type="text" class="form-control" name="tag_number" placeholder="Tag Number" required="required" value="{{goat.tag_number}}" disabled>
+                    </div>
+                </div>
+  
+                  <!-- policy number -->
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-edit"></i>
+                            </span>                    
+                        </div>
+                        <input type="text" class="form-control" name="policy_number" placeholder="Policy Number" required="required" value="{{goat.policy_number}}" disabled>
+                    </div>
+                </div>
+
+                <!-- death place -->
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span class="fa fa-address-card"></span>
+                            </span>                    
+                        </div>
+                        <input type="text" class="form-control" name="death_place" placeholder="Place of Death" value="{{goat_insurance.death_place}}">
+                    </div>
+                </div>
+
+                <!-- death date -->
+                <div class="form-group" style="margin-top: -7px">
+                <span>Select the date of death</span><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar-o"></i>
+                            </span>                    
+                        </div>
+                        <input type="date" class="form-control" name="death_date" value="{{goat_insurance.death_date|date:'Y-m-d'}}">
+                    </div>
+                </div>
+                
+                <!-- death time -->
+                <div class="form-group" style="margin-top: -7px">
+                <span>Select the time of death</span><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar-o"></i>
+                            </span>                    
+                        </div>
+                        <input type="time" class="form-control" name="death_time" value="{{goat_insurance.death_time}}">
+                    </div>
+                </div>
+
+                <!-- toll free number -->
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-tag"></i>
+                            </span>                    
+                        </div>
+                        <input type="text" class="form-control" name="toll_free_no" placeholder="Toll Free Number" value="{{goat_insurance.toll_free_no}}">
+                    </div>
+                </div>
+
+                <!-- intimation date time -->
+                <div class="form-group" style="margin-top: -7px">
+                <span>Select the date time for intimation</span><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar-o"></i>
+                            </span>                    
+                        </div>
+                        <input type="datetime-local" class="form-control" name="intimation" value="{{goat_insurance.intimation}}">
+                    </div>
+                </div>
+
+                <!-- upload panchnama doc -->
+                <div id="panchnama">
+                <div class="form-group">
+                <span>Upload Panchnama Docs</span><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-upload"></i>
+                            </span>                    
+                        </div>
+                        <input type="file" id="panchnama-file" name="panchnama-file" class="form-control" value="{{goat_insurance.panchnama_doc}}">
+                    </div>
+                </div>
+                </div>
+
+                <!-- upload police patil doc -->
+                <div id="police">
+                <div class="form-group">
+                <span>Upload Police Patil Docs</span><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-upload"></i>
+                            </span>                    
+                        </div>
+                        <input type="file" id="police-file" name="police-file" class="form-control" value="{{goat_insurance.police_doc}}">
+                    </div>
+                </div>
+                </div>
+
+                <!-- upload sarpanch doc -->
+                <div id="sarpanch">
+                <div class="form-group">
+                <span>Upload Sarpanch Docs</span><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-upload"></i>
+                            </span>                    
+                        </div>
+                        <input type="file" id="sarpanch-file" name="sarpanch-file" class="form-control" value="{{goat_insurance.sarpanch_doc}}">
+                    </div>
+                </div>
+                </div>
+
+                <!-- upload pm_report doc -->
+                <div id="pm_report">
+                <div class="form-group">
+                <span>Upload pm_report Docs</span><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-upload"></i>
+                            </span>                    
+                        </div>
+                        <input type="file" id="pm_report-file" name="pm_report-file" class="form-control" value="{{goat_insurance.pm_doc}}">
+                    </div>
+                </div>
+                </div>
+
+                <!-- submission_claim_date -->
+                <div class="form-group" style="margin-top: -7px">
+                <span>Select the date time for Submission of Claim</span><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar-o"></i>
+                            </span>                    
+                        </div>
+                        <input type="date" class="form-control" name="submission_claim_date" value="{{goat_insurance.submission_claim_date|date:'Y-m-d' }}">
+                    </div>
+                </div>
+
+                <!-- submitted person name -->
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span class="fa fa-user"></span>
+                            </span>                    
+                        </div>
+                        <input type="text" class="form-control" name="submitted_person" placeholder="Submitted by Person Name" value="{{goat_insurance.submitted_person}}">
+                    </div>
+                </div>
+
+                <!-- claim number -->
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-tag"></i>
+							</span>                    
+						</div>
+						<input type="text" class="form-control" name="claim_number" placeholder="Claim Number" value="{{goat_insurance.claim_number}}">
+					</div>
+				</div>
+
+                <!-- claim_settlement_date -->
+                <div class="form-group" style="margin-top: -7px">
+                <span>Select the date time for Submission of Claim</span><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar-o"></i>
+                            </span>                    
+                        </div>
+                        <input type="date" class="form-control" name="claim_settlement_date" value="{{goat_insurance.claim_settlement_date|date:'Y-m-d'}}">
+                    </div>
+                </div>
+
+                <!-- neft_intimation_date -->
+                <div class="form-group" style="margin-top: -7px">
+                <span>Select the date time for Submission of Claim</span><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar-o"></i>
+                            </span>                    
+                        </div>
+                        <input type="date" class="form-control" name="neft_intimation_date" value="{{goat_insurance.neft_intimation_date|date:'Y-m-d'}}">
+                    </div>
+                </div>
+
+                <!-- goat_replacement_date -->
+                <div class="form-group" style="margin-top: -7px">
+                <span>Select the date time for Submission of Claim</span><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar-o"></i>
+                            </span>                    
+                        </div>
+                        <input type="date" class="form-control" name="goat_replacement_date" value="{{goat_insurance.goat_replacement_date|date:'Y-m-d'}}">
+                    </div>
+                </div>
+
+                <!-- replaced_tag_number -->
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fa fa-tag"></i>
+							</span>                    
+						</div>
+						<input type="text" class="form-control" name="replaced_tag_number" placeholder="Replaced Tag Number" value="{{goat_insurance.replaced_tag_number}}">
+					</div>
+				</div>
+
+                <!-- complete insurance done -->
+                <div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<span class="fa fa-genderless"></span>
+							</span>                    
+						</div>
+						<div class="form-control">
+							<label for="claim" style="padding-right: 20px;color: #495057;">Is Insurance Complete?</label>
+                            {% if claim_status is True%}
+                                <input type="radio" id="yes" name="claim" value="True" value="" checked="checked" disabled>
+                                <label for="yes" style="padding-right: 10px;">Yes</label>
+                            {% else %}
+                                <input type="radio" id="no" name="claim" value="False" value="" checked="checked">
+                                <label for="no">No</label>
+                                <input type="radio" id="yes" name="claim" value="True">
+							    <label for="yes" style="padding-right: 10px;">Yes</label
+                            {% endif %}
+						</div>         
+					</div>
+				</div>
+
+                <!-- Sign Up -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg signup" id="signup11">Submit</button>
+                </div>
+
+                <div>
+                    {%for message in messages%}
+                        <h4>{{error}}</h4>
+                    {% endfor %}
+                </div>
+            </form>
+            <br>
+        </div>
+        </div>
+
+</body>
+<script>
+    function yesnoCheck() {
+    if (document.getElementById('yesCheck').checked) {
+        document.getElementById('panchnama').style.display = 'block';
+    }
+    else document.getElementById('panchnama').style.display = 'none';
+}
+
+    function yesnoCheck1() {
+    if (document.getElementById('yesCheck1').checked) {
+        document.getElementById('police').style.display = 'block';
+    }
+    else document.getElementById('police').style.display = 'none';
+}
+
+    function yesnoCheck2() {
+    if (document.getElementById('yesCheck2').checked) {
+        document.getElementById('sarpanch').style.display = 'block';
+    }
+    else document.getElementById('sarpanch').style.display = 'none';
+}
+
+    function yesnoCheck3() {
+    if (document.getElementById('yesCheck3').checked) {
+        document.getElementById('pm_report').style.display = 'block';
+    }
+    else document.getElementById('pm_report').style.display = 'none';
+}
+
+</script>
+</html>

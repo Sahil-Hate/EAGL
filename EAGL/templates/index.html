@@ -1,0 +1,425 @@
+<!doctype html>
+{% load static %}
+<!--
+	Lamoda by TEMPLATE STOCK
+	templatestock.co @templatestock
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
+
+<html lang="en-gb" class="no-js">
+  <head>
+    <meta charset="utf-8">
+	<title>EAGL</title>
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">		
+		
+	<!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      
+
+     <!--styles -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.theme.css' %}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.transitions.css' %}" rel="stylesheet">
+    <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/etlinefont.css' %}">
+    <link href="{% static 'css/style.css' %}" type="text/css"  rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/db71ca3f4b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+   <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+    
+	<body  data-spy="scroll" data-target="#main-menu">
+      
+   <!--Start Navigation-->
+		<header id="header">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="fa fa-bars"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+                            <!--Start Logo -->
+							<div class="logo-nav">
+								<a href="{% url 'index' %}">
+									<img src="{% static 'images/eagl-bg.png' %}" alt="Company logo" style="width: 37%;height:auto;margin-top:1%" />
+								</a>
+							</div>
+                            <!--End Logo -->
+							<div class="clear-toggle"></div>
+							<div id="main-menu" class="collapse scroll navbar-right">
+								<ul class="nav">
+                                
+									<li class="active"> <a href="#home">Home</a> </li>
+									
+									<li> <a href="#about">Forms</a> </li>
+                                   
+								    <li> <a href="#services">Services</a> </li>
+																		
+									<li> <a href="#blog">Blog</a></li>
+                                     
+									<li> <a href="{% url 'login'%}">DASHBOARD</a> </li>
+
+                                    <li> <a href="{% url 'admin:index'%}">ADMIN</a> </li>
+										
+								</ul>
+							</div><!-- end main-menu -->
+						</div>
+					</div>
+				</div>
+			</header>
+    <!--End Navigation-->
+
+      
+        <!-- Start Slider  -->
+        <section id="home" class="home">
+             <div class="slider-overlay"></div>
+            <div class="flexslider">
+                <ul class="slides scroll">
+                    <li class="first">
+                        <div class="slider-text-wrapper">  
+                            <div class="container">
+                                <div class="big">Fighting Poverty Together</div>          
+                                <div class="small">Are you wiling to fight poverty?</div>
+                                <a href="{% url 'login'%}" class="middle btn btn-white" style="z-index:100;">GO TO DASHBOARD</a>
+                            </div>       
+                        </div>
+                        <img src="{% static 'images/slider/farmer_1_1920x1280.jpg' %}" alt="">
+                    </li>
+                    
+                    <li class="secondary">
+                        <div class="slider-text-wrapper"> 
+                            <div class="container">                       
+                                <div class="big">Fighting Poverty Together</div>          
+                                <div class="small">Are you wiling to fight poverty?</div>
+                                <a href="{% url 'login'%}" class=" middle btn btn-white">GO TO DASHBOARD</a>
+                            </div>
+                         </div>
+                         <img src="{% static 'images/slider/web-bg-1.jpg' %}" alt="">
+                    </li>
+                    
+                    <li class="third">
+                        <div class="slider-text-wrapper"> 
+                            <div class="container">                              
+                                <div class="big">Fighting Poverty Together </div>          
+                                <div class="small">Are you wiling to fight poverty?</div>
+                                <a href="{% url 'login'%}" class="middle btn btn-white">GO TO DASHBOARD</a>
+                             </div>
+                        </div>
+                        <img src="{% static 'images/slider/farmer2.jpg' %}" alt="">
+                    </li>
+                </ul>
+            </div>
+        </section>
+          <!-- End Slider  -->
+
+
+  <!--Start Features-->
+  <section  id="about" class="section">
+       <div class="container">
+           <div class="row">
+            <div class="title-box text-center">
+                <h2 class="title">How to get Started</h2>
+             </div>
+              <!-- Features Icon-->
+              <div class="col-md-4">
+                  <div class="features-icon-box">
+                  
+                      <div class="features-icon">
+                        <a href=""><i class="fa fa-user fa-lg"></i></a>
+                      </div>
+                      
+                      <div class="features-info">
+                         <h4>User Details</h4>
+                         <p>You can add the villagers details by clicking on the icon.</p>
+                      </div>
+                  </div>
+              </div>
+ 
+               <!-- Features Icon-->
+              <div class="col-md-4">
+                  <div class="features-icon-box">
+                  
+                      <div class="features-icon">
+                      <a href=""><i class="fa fa-dog fa-lg"></i></a>
+                      </div>
+                      
+                      <div class="features-info">
+                         <h4>Goat Details</h4>
+                         <p>You can add the goat details by clicking on the icon.</p>
+                      </div>
+                  </div>
+              </div>
+
+               <!-- Features Icon-->
+              <div class="col-md-4">
+                  <div class="features-icon-box">
+                  
+                      <div class="features-icon">
+                        <a href=""><i class="fas fa-address-card fa-lg"></i></a>
+                      </div>
+                      
+                      <div class="features-info">
+                         <h4>Insurance</h4>
+                         <p>You can add the Insurance details by clicking on the icon.</p>
+                      </div>
+                  </div>
+              </div>
+ 
+               <!-- Features Icon-->
+              <div class="col-md-4">
+                  <div class="features-icon-box">
+                  
+                      <div class="features-icon">
+                        <a href=""><i class="fa fa-syringe"></i></a>
+                      </div>
+                      
+                      <div class="features-info">
+                         <h4>Vaccine Phase I</h4>
+                         <p>You can add the Vaccine details by clicking on the icon</p>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Features Icon-->
+              <div class="col-md-4">
+                  <div class="features-icon-box">
+                  
+                      <div class="features-icon">
+                     <i class="fa fa-line-chart"></i>
+                      </div>
+                      
+                      <div class="features-info">
+                         <h4>Digital Design</h4>
+                         <p>Lorem ipsum dolor consectetur adipisicing incididunt eiusmod tempor incididunt laboredolore magna aliqua.</p>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Features Icon-->
+              <div class="col-md-4">
+                  <div class="features-icon-box">
+                  
+                      <div class="features-icon">
+                      <i class="fa fa-gift"></i>
+                      </div>
+                      
+                      <div class="features-info">
+                         <h4>Fully Responsive</h4>
+                         <p>Lorem ipsum dolor consectetur adipisicing incididunt eiusmod tempor incididunt laboredolore magna aliqua.</p>
+                      </div>
+                  </div>
+              </div>
+
+              
+           </div> <!-- /.row-->
+       </div> <!-- /.container-->
+  </section> 
+  <!--End Features-->
+
+ 
+  <!--Start Services-->
+   <section id="services" class="section">
+        <div class="container">
+            <div class="row">
+            
+                 <div class="title-box text-center">
+                    <h2 class="title">What We Do</h2>
+                 </div>
+              
+               <!--Services Item-->
+               <div class="col-md-4">
+                   <div class="services-box">
+                       <div class="services-icon"> <i class="icon-basket"></i> </div> 
+                       <div class="services-desc">
+                          <h4>Organic Farming</h4>
+                          <p>Lorem ipsum dolor consectetur dolor consectetur adipisicing incididunt eiusmod tempor incididunt laboredolore adipisicing. </p>
+                       </div>
+                   </div>
+               </div>
+                <!--End services Item-->
+                
+                <!--Services Item-->
+               <div class="col-md-4">
+                   <div class="services-box">
+                       <div class="services-icon"> <i class="icon-shield"></i> </div> 
+                       <div class="services-desc">
+                          <h4>Business Sustainability Measures</h4>
+                          <p>Lorem ipsum dolor consectetur dolor consectetur adipisicing incididunt eiusmod tempor incididunt laboredolore adipisicing. </p>
+                       </div>
+                   </div>
+               </div>
+               <!--End services Item-->
+               
+               <!--Services Item-->
+               <div class="col-md-4">
+                   <div class="services-box">
+                       <div class="services-icon"> <i class="icon-hotairballoon"></i> </div> 
+                       <div class="services-desc">
+                          <h4>Skill Development Programs</h4>
+                          <p>Lorem ipsum dolor consectetur dolor consectetur adipisicing incididunt eiusmod tempor incididunt laboredolore adipisicing. </p>
+                       </div>
+                   </div>
+               </div>
+                <!--End services Item-->
+                
+               <!--Services Item -->
+               <div class="col-md-4">
+                   <div class="services-box">
+                       <div class="services-icon"> <i class="icon-global"></i> </div> 
+                       <div class="services-desc">
+                          <h4>Women & Youth Empowerment</h4>
+                          <p>Lorem ipsum dolor consectetur dolor consectetur adipisicing incididunt eiusmod tempor incididunt laboredolore adipisicing. </p>
+                       </div>
+                   </div>
+               </div>
+               <!--End services Item-->
+               
+               <!--Services Item-->
+               <div class="col-md-4">
+                   <div class="services-box">
+                       <div class="services-icon"> <i class="icon-target"></i> </div> 
+                       <div class="services-desc">
+                          <h4>Dairy Management</h4>
+                          <p>Lorem ipsum dolor consectetur dolor consectetur adipisicing incididunt eiusmod tempor incididunt laboredolore adipisicing. </p>
+                       </div>
+                   </div>
+               </div>
+              <!--End services Item-->
+              
+               <!--Services Item -->
+               <div class="col-md-4">
+                   <div class="services-box">
+                       <div class="services-icon"> <i class="icon-aperture"></i> </div> 
+                       <div class="services-desc">
+                          <h4>Hunger Free India</h4>
+                          <p>Lorem ipsum dolor consectetur dolor consectetur adipisicing incididunt eiusmod tempor incididunt laboredolore adipisicing. </p>
+                       </div>
+                   </div>
+               </div>
+               <!--End services Item-->
+              
+            </div> <!--/.row-->
+        </div> <!--/.container-->
+   </section> 
+  <!--End Services-->
+
+   <!-- Start blog-->
+   <section id="blog" class="section">
+       <div class="container">
+           <div class="row">
+           
+                 <div class="title-box text-center">
+                    <h2 class="title">Latest Blog</h2>
+                 </div>
+                
+               <!-- Start Blog item #1-->
+               <div class="col-md-4">
+                   <div class="blog-post">
+                         <div class="post-media">
+							 <img src="{% static 'images/blog/blog1.jpg' %}" alt="">
+                         </div>
+                       <div class="post-desc">
+                           <h4>consectetur adipisicing Inventore</h4>
+                           <h5>12 May, 2015 / 5 Comments</h5>
+                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dolorum, fugiat, eligendi magni quibusdam iure cupiditate ex voluptas unde</p>
+                            <a href="" class="btn btn-gray-border">Read More</a>
+                       </div>
+                   </div>
+               </div>
+               
+               <!-- Start Blog item #2-->
+               <div class="col-md-4">
+                   <div class="blog-post">
+                         <div class="post-media">
+							 <img src="{% static 'images/blog/blog2.jpg' %}" alt="">
+                         </div>
+                       <div class="post-desc">
+                           <h4>consectetur adipisicing Inventore</h4>
+                            <h5>12 May, 2015 / 3 Comments</h5>
+                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dolorum, fugiat, eligendi magni quibusdam iure cupiditate ex voluptas unde</p>
+                            <a href="" class="btn btn-gray-border">Read More</a>
+                       </div>
+                   </div>
+               </div>
+               
+               <!-- Start Blog item #3-->
+               <div class="col-md-4">
+                   <div class="blog-post">
+                         <div class="post-media">
+							 <img src="{% static 'images/blog/blog3.jpg' %}" alt="">
+                         </div>
+                       <div class="post-desc">
+                           <h4>consectetur adipisicing Inventore</h4>
+                             <h5>12 May, 2015 / 11 Comments</h5>
+                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dolorum, fugiat, eligendi magni quibusdam iure cupiditate ex voluptas unde</p>
+                        <a href="" class="btn btn-gray-border">Read More</a>
+                       </div>
+                   </div>
+               </div>
+
+           </div> <!--/.row-->
+       </div> <!--/.container-->
+   </section>
+   <!-- End blog-->
+
+   
+   <!--Start Footer-->
+   <footer>
+       <div class="container">
+           <div class="row">
+               <!--Start copyright-->
+               <div class="col-md-6 col-sm-6 col-xs-6">
+                   <div class="copyright"><p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> All Rights reserved by <a href="http://eagl.in/index.html"> EAGL </a>
+                 </p></div>
+               </div>
+               <!--End copyright-->
+               
+               <!--start social icons-->
+               <div class="col-md-6 col-sm-6 col-xs-6">
+                   <div class="social-icons">
+                       <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                       </ul>
+                    </div>
+               </div>
+               <!--End social icons-->
+           </div> <!-- /.row-->
+       </div> <!-- /.container-->
+   </footer>
+   <!--End Footer-->
+
+   <a href="#" class="scrollup"> <i class="fa fa-chevron-up"> </i> </a>
+
+    <!--Plugins-->
+	<script type="text/javascript" src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.flexslider-min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.easypiechart.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.appear.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.parallax-1.1.3.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.mixitup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+    
+ </body>
+</html>
+
